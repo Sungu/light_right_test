@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row text-center">
+    <div class="text-center">
+    <h1 style="margin-bottom:40px;margin-top:40px;font-weight:bold;font-size:50px;">Simple Categorization Test</h1>
+    <img src="https://s3.ap-northeast-2.amazonaws.com/sungurails/light_right_test/nanyang.png">
+    <h4 style="margin-top:40px;">Principal Investigator: Dr Luca ONNIS</h4>
+    <h4>Linguistics and Multilingual Studies, HSS</h4>
+    <h4>Nanyang Technological University</h4>
+      
+    </div>
+    <%= form_tag "/home/save_user", method: "post" do %>
+      <label style="font-weight:bold;font-size:30px;margin-bottom:40px;margin-top:40px;">Enter your personal info</label>
+      <div class="form-group" style="height: 40px;">
+        <label class="col-sm-2 control-label">First Name</label>
+        <div class="col-sm-10">
+          <input name="f_name" type="text" class="form-control" placeholder="Ex) Jane">
+        </div>
+      </div>
+      <div class="form-group" style="height: 40px;">
+        <label class="col-sm-2 control-label">Last Name</label>
+        <div class="col-sm-10">
+          <input name="l_name" type="text" class="form-control" placeholder="Ex) Eyre">
+        </div>
+      </div>
+      <div class="form-group" style="height: 40px;">
+        <label class="col-sm-2 control-label">Nationality</label>
+        <div class="col-sm-10">
+          <input name="nation" type="text" class="form-control" placeholder="Ex) England">
+        </div>
+      </div>
+      <div class="form-group" style="height: 40px;">
+        <label class="col-sm-2 control-label">Age</label>
+        <div class="col-sm-10">
+          <input name="age" type="text" class="form-control" placeholder="Ex) 22">
+        </div>
+      </div>
+      <div class="form-group" style="height: 40px;">
+        <label class="col-sm-2 control-label">Sex</label>
+        <div class="col-sm-10" style="text-align:left">
+          <label class="radio-inline">
+            <input type="radio" name="sex" id="inlineRadio1" value="male"> Male
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="sex" id="inlineRadio2" value="female"> Female
+          </label>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-default btn-lg">Next</button>
+    <% end %>
+  </div>
+</div>

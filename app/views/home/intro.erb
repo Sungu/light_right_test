@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row text-center">
+    
+    <h1 style="margin-top:50px;margin-bottom:50px;font-size:bigger;font-size:50px">Introduction</h1>
+    <div style="font-size:24px;">
+      <p>Welcome to our Categorization Test!</p>
+      <p>This test will give you 20 examplars of <b>'Light' or 'Right'</b>.</p>
+      <p>You can hear the sound by pushing the <b>'Play'</b> Button.</p>
+      <p>Then, you should identify whether it is <b>'Light' or 'Right'</b></p>
+      <p>After identification, you should rate that sound's goodness as exemplar.</p>
+      <p>The scale will start from <b>1(bad) to 7(good)</b></p>
+      <p>If you think the sound is good examplars, then you can rate it as 7.</p>
+      <p>Otherwise, you can rate it as 1.</p>
+      <p>Please <b>listen carefully</b> cause you can hear each sound <b>Only 1 Time.</b></p>
+      <p>Addtionally, if you can't distinguish, <b>Just Believe your Gut!</b></p>
+      
+      <p style="margin-top:50px;">Before we start the test, Let's have a sound test.</p>
+      <p>Click the play button!</p>
+      
+      <%= audio_tag "https://s3.ap-northeast-2.amazonaws.com/sungurails/light_right_test/testsound.mp3", class: "audio-play" %>
+      <p class="btn btn-primary audioButton btn-lg" style="margin-top:30px;margin-bottom:30px;">Play</p>
+      
+      <p>If you can hear the sound clearly, Click the Start Button.</p>
+    </div>
+    
+    <a href="/home/ex/<%= @user_id %>"><p class="btn btn-primary btn-lg" style="margin-top:30px;margin-bottom:30px;">Start</p></a>
+    
+    
+    
+  </div>
+</div>
+
+<script>
+  $(".audioButton").on("click", function() {
+    $(".audio-play")[0].currentTime = 0;
+    return $(".audio-play")[0].play();
+  });
+</script>

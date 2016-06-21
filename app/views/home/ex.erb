@@ -1,0 +1,89 @@
+<div class="container">
+  <div class="row">
+    <h1>Question <%= @num %></h1>
+    
+    <%= audio_tag "https://s3.ap-northeast-2.amazonaws.com/sungurails/light_right_test/#{@num}.wav", class: "audio-play" %>
+    <p id="button" class="btn btn-primary audioButton">Play</p>
+    
+    <div id="effect" class="ui-widget-content ui-corner-all">
+      <%= form_tag "/home/save_q/#{@user_id}", method: "post" do %>
+        <div>
+          <h3 class="ui-widget-header ui-corner-all">Identification</h3>
+          <label class="radio-inline">
+            <input type="radio" name="iden" id="inlineRadio1" value="L"> Light
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="iden" id="inlineRadio2" value="R"> Right
+          </label>
+        </div>
+        <div style="margin-top:30px;margin-bottom:30px;">
+          <h3 class="ui-widget-header ui-corner-all">Goodness</h3>
+          <label class="radio-inline">
+            <input type="radio" name="goodness" id="inlineRadio1" value="1"> 1
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="goodness" id="inlineRadio2" value="2"> 2
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="goodness" id="inlineRadio3" value="3"> 3
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="goodness" id="inlineRadio4" value="4"> 4
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="goodness" id="inlineRadio5" value="5"> 5
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="goodness" id="inlineRadio6" value="6"> 6
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="goodness" id="inlineRadio7" value="7"> 7
+          </label>
+        </div>
+        <input type="hidden" name ="num" value="<%= @num %>">
+        <% if @num == 20 %>
+          <button type="submit" class="btn btn-default">Finish</button>
+        <% else %>
+          <button type="submit" class="btn btn-default">Next</button>
+        <% end %>
+      <% end %>
+    </div>
+    
+  </div>
+</div>
+
+<script>
+  $(".audioButton").on("click", function() {
+    $(".audio-play")[0].currentTime = 0;
+    return $(".audio-play")[0].play();
+  });
+  
+  $(function() {
+    // run the currently selected effect
+    function runEffect() {
+      // get effect type from
+      var selectedEffect = $( "blind" ).val();
+ 
+      // most effect types need no options passed by default
+      var options = {};
+      // some effects have required parameters
+      
+      // run the effect
+      $( "#effect" ).show( callback );
+    };
+ 
+    //callback function to bring a hidden box back
+    function callback() {
+      setTimeout(function() {
+        $( "#button:visible" ).removeAttr( "style" ).fadeOut();
+      });
+    };
+ 
+    // set effect from select menu value
+    $( "#button" ).click(function() {
+      runEffect();
+    });
+ 
+    $( "#effect" ).hide();
+  });
+</script>
